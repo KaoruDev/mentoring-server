@@ -14,8 +14,9 @@ module Recursion
 
     attr_reader :id, :friends
 
-    def initialize(name=nil)
+    def initialize(name=nil, company_name=nil)
       @name = name
+      @company_name = company_name
       @friends = []
     end
 
@@ -29,6 +30,10 @@ module Recursion
 
     def read_attribute_for_serialization(key)
       public_send(key)
+    end
+
+    def company_name
+      @company_name ||= Faker::App.name
     end
 
   end

@@ -13,13 +13,6 @@ module Recursion
         end
       end
 
-      def randomly_create_friends_for(friend)
-        if rand(1..5) > 3
-          create_friends_for(rand(1..2), friend) do |new_friend|
-            randomly_create_friends_for(new_friend)
-          end
-        end
-      end
     end
   end
 end

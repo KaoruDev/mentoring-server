@@ -20,7 +20,7 @@ module Recursion
     end
 
     def create_friend(name=nil)
-      increment_count
+      @count = @count + 1
       Friend.new(name)
     end
 
@@ -32,8 +32,12 @@ module Recursion
       end
     end
 
-    def increment_count
-      @count = @count + 1
+    def randomly_create_friends_for(friend)
+      if rand(1..5) > 3
+        create_friends_for(rand(1..2), friend) do |new_friend|
+          randomly_create_friends_for(new_friend)
+        end
+      end
     end
 
     def marker
