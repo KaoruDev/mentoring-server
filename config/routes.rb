@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   namespace :recursion do
-    get "friends/:id" => "friends#show"
+    get "friends/:level" => "friends#show"
   end
 end
