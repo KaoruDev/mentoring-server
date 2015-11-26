@@ -1,6 +1,6 @@
 # Mentor Server
 
-Live server for the purpose of createing a fake api for mentoring exercises.
+Live server for the purpose of creating a fake api for mentoring exercises.
 
 ## Current Projects
 
