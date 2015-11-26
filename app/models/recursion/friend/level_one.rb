@@ -4,15 +4,14 @@ module Recursion
       include GenerateFriend
 
       def create_fake_friends
-        3.times do
-          root_friend.friends << create_friend
+        root_friends(1).each do |friend|
+          create_friends_for(3, friend)
+          friend.friends.last.friends << marker
         end
-
-        root_friend
       end
 
       def marker
-        Friend.new("Tom Hanks")
+        @marker ||= create_friend("Tom Hanks")
       end
 
     end

@@ -3,28 +3,45 @@ module Recursion
 
     def self.included(base)
       base.class_eval do
-        attr_reader :current_count
+        attr_reader :count
       end
     end
 
-    def root_friend
-      @root_friend ||= create_friend
+    def initialize
+      @count = 0
     end
 
-    def create_friend
+    def root_friends( count = 1)
+      return @root_friends if @root_friends
+
+      @root_friends = count.times.map do
+        create_friend
+      end
+    end
+
+    def create_friend(name=nil)
       increment_count
-      Friend.new()
+      Friend.new(name)
     end
 
     def create_friends_for(count, friend)
       count.times do
-        friend.friends << create_friend
+        new_friend = create_friend
+        yield(new_friend) if block_given?
+        friend.friends << new_friend
       end
     end
 
     def increment_count
-      @current_count ||= 0
-      @current_count = @current_count + 1
+      @count = @count + 1
     end
+
+    def marker
+    end
+
+    def read_attribute_for_serialization(key)
+      public_send(key)
+    end
+
   end
 end

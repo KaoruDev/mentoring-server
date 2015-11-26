@@ -7,14 +7,16 @@ module Recursion
     }
 
     def self.create(level)
-      LEVEL_MAP[level].new.create_fake_friends
+      level = LEVEL_MAP[level].new
+      level.create_fake_friends
+      level
     end
 
     attr_reader :id, :friends
 
     def initialize(name=nil)
+      @name = name
       @friends = []
-      @name = nil
     end
 
     def name
