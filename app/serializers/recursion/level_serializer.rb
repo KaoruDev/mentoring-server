@@ -11,7 +11,7 @@ module Recursion
     def meta
       {
         total_count: object.count,
-        marker: object.marker ? FriendSerializer.new(object.marker, root: false) : nill
+        marker: object.marker ? FriendSerializer.new(object.marker, root: false) : nil
       }
     end
 
