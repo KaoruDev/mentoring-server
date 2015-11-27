@@ -40,7 +40,7 @@ module Recursion
       end
     end
 
-    def marker
+    def marker(serialize=false)
     end
 
     def read_attribute_for_serialization(key)

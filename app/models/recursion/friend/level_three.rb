@@ -31,7 +31,7 @@ module Recursion
         "Mass Relevance"
       end
 
-      def marker
+      def marker(serialize = false)
         {
           company: marker_company,
           count: @marker_count

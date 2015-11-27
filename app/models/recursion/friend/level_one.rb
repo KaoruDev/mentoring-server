@@ -10,8 +10,14 @@ module Recursion
         end
       end
 
-      def marker
+      def marker(serialize=false)
         @marker ||= create_friend("Tom Hanks")
+
+        if (serialize)
+          FriendSerializer.new(@marker, root: false)
+        else
+          @marker
+        end
       end
 
     end
